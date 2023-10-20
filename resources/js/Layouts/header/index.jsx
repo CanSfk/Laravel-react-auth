@@ -18,6 +18,7 @@ export default function Header() {
                             as="button"
                             method="post"
                             title="Log out"
+                            href={route("logout")}
                         />
                     </div>
                 </div>

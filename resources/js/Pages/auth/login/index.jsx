@@ -16,13 +16,12 @@ export default function Login() {
     const submit = (e) => {
         e.preventDefault();
 
-        // post(route("login"));
+        post(route("login"));
     };
 
     useEffect(() => {
         document.title = "Login";
     }, []);
-    
 
     return (
         <AuthLayout>
