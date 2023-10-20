@@ -1,11 +1,26 @@
+import { useEffect, useState } from "react";
 import Header from "./header";
 
 export default function Layouts({ children }) {
-    return (
-        <div className="w-full min-h-screen flex flex-col gap-10 px-10 py-10">
-            <Header />
+    const [show, setShow] = useState(false);
 
-            <main className="flex-1 h-full w-full grid">{children}</main>
-        </div>
+    useEffect(() => {
+        const hasScrollBar =
+            document.documentElement.scrollHeight > window.innerHeight;
+        if (hasScrollBar) setShow(false);
+        else setShow(true);
+    });
+
+    return (
+        <section className="w-full min-h-screen bg-slate-200 flex">
+            <div className="flex flex-col items-center flex-1">
+                <Header show={show} />
+
+                <main className="grid w-[1200px] mt-40 py-14 h-max">
+                    {children}
+                </main>
+            </div>
+            {show && <div className="min-h-screen w-[15px]" />}
+        </section>
     );
 }

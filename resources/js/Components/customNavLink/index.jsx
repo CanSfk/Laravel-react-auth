@@ -4,8 +4,8 @@ export default function CustomNavLink({ title, active = false, ...props }) {
     return (
         <Link
             {...props}
-            className={`text-xl font-bold text-slate-900 transition duration-300 hover:text-shadow hover:text-cyan-500 ${
-                active && "text-shadow !text-cyan-500"
+            className={`font-medium text-sm border-b-[2px] border-transparent text-slate-700 px-1 py-6 block ${
+                active && "!border-green-500"
             }`}
         >
             {title}
