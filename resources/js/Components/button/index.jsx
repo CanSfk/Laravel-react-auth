@@ -21,6 +21,7 @@ export default function Button({
                         color === "red",
                     "w-full": width === "large",
                     "w-max": width === "small",
+                    "pointer-events-none": disabled,
                 }
             )}
         >

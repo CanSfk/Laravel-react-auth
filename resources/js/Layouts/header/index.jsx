@@ -3,13 +3,9 @@ import ApplicationLogo from "@/Components/applicationLogo";
 import { Link } from "@inertiajs/react";
 import Popover from "@/Components/popover";
 
-export default function Header({ show }) {
+export default function Header({ user }) {
     return (
-        <div
-            className={`bg-white w-full absolute top-0 left-0 ${
-                show ? "pr-[15px]" : ""
-            }`}
-        >
+        <div className={`bg-white w-full absolute top-0 left-0`}>
             <div className="border-b border-slate-200 w-full flex items-center justify-center">
                 <div className="w-[1200px] flex items-center justify-between">
                     <div className="flex items-center gap-10">
@@ -29,7 +25,7 @@ export default function Header({ show }) {
                         <Popover.Button className="flex items-center gap-2 text-sm text-slate-700">
                             {({ show }) => (
                                 <>
-                                    <span>Can SAFAK</span>
+                                    <span>{user.name}</span>
                                     <div
                                         className={`${
                                             show && "-rotate-180 text-green-600"
@@ -54,7 +50,11 @@ export default function Header({ show }) {
                             >
                                 Profile
                             </Popover.Link>
-                            <Popover.Link href={route("logout")} method="post">
+                            <Popover.Link
+                                href={route("logout")}
+                                method="post"
+                                as="button"
+                            >
                                 Log Out
                             </Popover.Link>
                         </Popover.Panel>

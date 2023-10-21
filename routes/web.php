@@ -10,5 +10,6 @@ Route::get('dashboard', function () {
 })->name('dashboard');
 
 Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
 
 require __DIR__ . './auth.php';
