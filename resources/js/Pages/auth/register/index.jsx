@@ -75,7 +75,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-2 w-full flex items-center gap-4">
-                    <Button type="submit" title="Register" className="w-max" />
+                    <Button type="submit" className="w-max" >Register</Button>
                     <Link
                         href={route("login")}
                         className="text-sm font-semibold text-slate-600 underline hover:text-slate-800 focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:outline-none rounded-md px-1 py-1 focus:text-slate-800"

@@ -20,7 +20,7 @@ export default function UpdatePassword() {
         e.preventDefault();
 
         put(route('password.update'), {
-            preserveScroll:true,
+            preserveScroll: true,
             onSuccess: () => reset(),
             onError: (errors) => {
                 if (errors.password) {
@@ -28,6 +28,9 @@ export default function UpdatePassword() {
                 }
                 if (errors.current_password) 
                     reset('current_password');
+                
+
+
             }
         });
     }
@@ -89,7 +92,7 @@ export default function UpdatePassword() {
                         }/>
                     </div>
                     <div className="flex items-center gap-3">
-                        <Button title="Save" className="w-max"/>
+                        <Button className="w-max">Save</Button>
 
                         <Transition show={recentlySuccessful}
                             enter="transition ease-in-out duration-300"

@@ -1,4 +1,5 @@
 import Button from "@/Components/button";
+import { setModal } from "@/Store/modal/actions";
 
 export default function DeleteProfile() {
     return (
@@ -13,7 +14,13 @@ export default function DeleteProfile() {
                         you wish to retain.
                     </span>
                 </div>
-                <Button title="Delete Account" color="red" />
+                <Button
+                    onClick={() => setModal("deleteUser")}
+                    title="Delete Account"
+                    color="red"
+                >
+                    Delete Account
+                </Button>
             </div>
         </div>
     );

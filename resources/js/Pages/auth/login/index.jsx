@@ -61,10 +61,9 @@ export default function Login() {
 
                 <div className="flex gap-5 items-center mt-2">
                     <Button
-                        title="Log in"
                         className="w-max"
                         disabled={processings}
-                    />
+                    >Log in</Button>
                     <div className="flex items-center gap-2">
                         <Link className="text-sm font-semibold text-slate-600 underline hover:text-slate-800 focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:outline-none rounded-md px-1 py-1 focus:text-slate-800">
                             Forgot your password ?

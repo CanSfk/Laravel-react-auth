@@ -7,15 +7,12 @@ import { Transition } from "@headlessui/react";
 
 export default function EditProfile({ user }) {
     const { data, setData, errors, patch, processing, recentlySuccessful } =
-        useForm({
-            name: user.name,
-            email: user.email,
-        });
+        useForm({ name: user.name, email: user.email });
 
     const submit = (e) => {
         e.preventDefault();
 
-        patch(route("profile.update"));
+        patch(route("profile.update"), { preserveScroll: true });
     };
 
     return (
@@ -53,11 +50,9 @@ export default function EditProfile({ user }) {
                     </div>
 
                     <div className="flex items-center gap-5">
-                        <Button
-                            title="Save"
-                            disabled={processing}
-                            className="w-max"
-                        />
+                        <Button disabled={processing} className="w-max">
+                            Save
+                        </Button>
 
                         <Transition
                             show={recentlySuccessful}

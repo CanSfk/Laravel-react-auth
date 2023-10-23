@@ -24,4 +24,9 @@ class ProfileController extends Controller
 
         return Redirect::route('profile');
     }
+
+    public function destroy()
+    {
+        //
+    }
 }
