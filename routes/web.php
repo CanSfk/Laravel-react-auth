@@ -7,9 +7,12 @@ use Inertia\Inertia;
 
 Route::get('dashboard', function () {
     return Inertia::render('dashboard/index');
-})->name('dashboard');
+})->middleware('auth')->name('dashboard');
 
-Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
-Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::middleware('auth')->group(function () {
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 require __DIR__ . '/auth.php';

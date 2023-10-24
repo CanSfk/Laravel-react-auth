@@ -1,12 +1,10 @@
-import { useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 
-export default function Input({
-    type,
-    className = "",
-    isFocused = false,
-    ...props
-}) {
-    const refInput = useRef();
+export default forwardRef(function Input(
+    { type = "text", className = "", isFocused = false, ...props },
+    ref
+) {
+    const refInput = ref ? ref : useRef();
 
     useEffect(() => {
         isFocused && refInput.current.focus();
@@ -20,4 +18,4 @@ export default function Input({
             className={`rounded-md border-slate-400 border ${className}`}
         />
     );
-}
+});

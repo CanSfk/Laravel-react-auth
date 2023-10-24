@@ -2,15 +2,31 @@ import Button from "@/Components/button";
 import Input from "@/Components/input";
 import InputError from "@/Components/inputError";
 import InputLabel from "@/Components/inputLabel";
+import { removeModal } from "@/Store/modal/actions";
 import { useForm } from "@inertiajs/react";
+import { useRef } from "react";
 
 export default function DeleteUser() {
-    const { data, setData, errors } = useForm({
+    const refInput = useRef();
+
+    const {
+        data,
+        setData,
+        delete: destroy,
+        errors,
+        reset,
+    } = useForm({
         current_password: "",
     });
 
     const submit = (e) => {
         e.preventDefault();
+
+        destroy(route("profile.destroy"), {
+            onSuccess: () => removeModal(),
+            onError: () => refInput.current.focus(),
+            onFinish: () => reset(),
+        });
     };
 
     return (
@@ -29,6 +45,7 @@ export default function DeleteUser() {
                 <div className="flex flex-col gap-1">
                     <InputLabel value="Password" htmlFor="current_password" />
                     <Input
+                        ref={refInput}
                         type="password"
                         name="current_password"
                         id="current_password"
